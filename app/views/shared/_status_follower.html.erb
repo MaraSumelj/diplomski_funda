@@ -1,0 +1,11 @@
+<% @page = Page.find_by(id: current_page_id) %>
+<div class="status_followers">
+	<a href="<%= followers_page_path(@page) %>">
+		<id="followers" class="stat">
+		pratitelji
+		<strong>
+		<%= @page.followers.count %>
+		</strong>
+		
+	</a>
+</div>

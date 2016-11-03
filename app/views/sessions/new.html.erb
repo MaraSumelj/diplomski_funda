@@ -1,0 +1,17 @@
+<h1>Prijava</h1>
+	<div class="row">
+		<div class="col-md-6 col-md-offset-3">
+		<%= form_for(:session, url: login_path) do |f| %>
+			<%= f.label :email %>
+			<%= f.email_field :email, class: 'form-control' %>
+			<%= f.label :lozinka %>
+			<%= f.password_field :password, class: 'form-control' %>
+			<%= f.label :remember_me, class: "checkbox inline" do %>
+			<%= f.check_box :remember_me %>
+			<span>Zapamti me</span>
+			<% end %>
+			<%= f.submit "Prijava", class: "btn btn-primary" %>
+		<% end %>
+		<p>Nemate račun? <%= link_to "Registrirajte se!", signup_path %></p>
+	</div>
+</div>

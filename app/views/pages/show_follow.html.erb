@@ -1,0 +1,29 @@
+<div class="row">
+	<aside class="col-md-4">
+		<section class="user_info">
+			<h1><%= @page.name %></h1>
+			<span><b>Objave:</b> <%= @page.microposts.count %></span>
+		</section>
+		<section class="stats">
+			<%= render 'shared/status_follower' %>
+		</section>
+	</aside>
+
+	<div class="col-md-8">
+		<h3><%= @title %></h3>
+
+		<% if @users.any? %>
+			<div class="user_avatars">
+				<% @users.each do |user| %>
+				<%= user.name%>
+				<%= link_to gravatar_for(user, size: 40), user %>
+				<% if 1  %>
+		
+					| <%= link_to "prestani pratiti", @page.passive_relationships.find_by(follower_id: user.id,followed_id: @page.id), method: :delete,data: { confirm: "Jeste li sigurni?" } %>
+				<% end %>	
+
+				<% end %>
+			</div>
+		<% end %>
+	</div>
+</div>

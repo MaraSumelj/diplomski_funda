@@ -1,0 +1,19 @@
+<h1>Korisnici</h1>
+
+<%= will_paginate %>
+
+	<ul class="users">
+		<% @users.each do |user| %>
+		<% if !current_user?(user) %>
+			<li>
+			
+			<%= link_to user.name, user %>
+			<% if admin? && !current_user?(user) %>
+				| <%= link_to "obriši", user, method: :delete,
+				data: { confirm: "Jeste li sigurni?" } %>
+			<% end %>
+			<% end %>
+		<% end %>
+	</ul>
+
+<%= will_paginate %>

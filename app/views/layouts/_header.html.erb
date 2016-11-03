@@ -1,0 +1,31 @@
+<header class="navbar navbar-fixed-top navbar-inverse">
+<div class="container">
+	<%= link_to "Funda", root_path, id: "logo" %>
+	<nav>
+		<ul class="nav navbar-nav navbar-right">
+			<li><%= link_to "Početna", root_path %></li>
+		<% if logged_in? %>
+			<li><%= link_to "Kolegiji", pages_path %></li>
+			<li class="dropdown">
+			<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+			Račun <b class="caret"></b>
+			</a>
+			<ul class="dropdown-menu">
+				<% if admin? %>
+					<li><%= link_to "Korisnici", users_path %></li>
+				<% end %>
+				<li><%= link_to "Profil", current_user %></li>
+				<li><%= link_to "Postavke", edit_user_path(current_user) %></li>
+				<li class="divider"></li>
+				<li>
+				<%= link_to "Odjava", logout_path, method: "delete" %>
+				</li>
+			</ul>
+			</li>
+		<% else %>
+			<li><%= link_to "Prijava", login_path %></li>
+		<% end %>
+		</ul>
+	</nav>
+</div>
+</header>

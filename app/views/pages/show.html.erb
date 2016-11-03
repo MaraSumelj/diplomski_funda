@@ -1,0 +1,32 @@
+<% @page.name %>
+<div class="row">
+	<aside class="col-md-4">
+		<section class="page_info">
+			<h1><%= @page.name %></h1>
+			<p>
+				<%= @page.description %>
+			</p>
+		</section>
+
+		<section class="status_followers">
+			<%= render 'shared/status_follower' %>
+		</section>
+
+		<section class="micropost_form">
+			<%= render 'shared/micropost_post' %>
+		</section>
+
+	</aside>
+	<div class="col-md-8">
+		<section class="status_followers">
+			<%= render 'follow_form' %>
+		</section>
+		<% if @page.microposts.any? %>
+			<h3>Objave (<%= @page.microposts.count %>)</h3>
+			<ol class="microposts">
+			<%= render @microposts %>
+			</ol>
+			<%= will_paginate @microposts %>
+		<% end %>
+	</div>
+</div>

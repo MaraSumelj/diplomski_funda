@@ -1,0 +1,30 @@
+<div class="row">
+	<aside class="col-md-4">
+		<section class="user_info">
+		<h1>
+			<%= gravatar_for @user %>
+			<%= @user.name %>
+		</h1>
+		</section>
+		<section class="status_following">
+			<%= render 'shared/status_following' %>
+		</section>
+	</aside>
+	<div class="col-md-8">
+		<h3> Pratim </h3>
+
+		<% if @pages.any? %>
+			<ul class="pages">
+			<% @pages.each do |page| %>
+				<li>
+				<%= link_to page.name, page %>
+
+				<% if current_user?(@user)  %>
+		
+					| <%= link_to "prestani pratiti", @user.active_relationships.find_by(followed_id: page.id), method: :delete,data: { confirm: "Jeste li sigurni?" } %>
+				<% end %>	
+			<% end %>
+			</ul>
+		<% end %>
+	</div>
+</div>

@@ -1,0 +1,45 @@
+hr:
+   activerecord:
+    models:
+      user:
+    attributes:
+      user:
+        name: "Polje ime"
+        password: "Polje lozinka"
+        password_confirmation: "Potvrda lozinke"
+
+   datetime:
+    distance_in_words:
+      half_a_minute: "pola minute"
+      less_than_x_minutes:
+        one:   "manje od minute"
+        other: "%{count} minuta"
+      x_minutes:
+        one:   "1 minutu"
+        other: "%{count} minuta"
+      about_x_hours:
+        one:   "1 sat"
+        two, three, four: "%{count} sata"
+        other: "%{count} sati"
+      x_days:
+        one:   "1 dan"
+        other: "%{count} dana"
+      about_x_months:
+        one:   "1 mjesec"
+        two, three, four: "%{count} mjeseca"
+        other: "%{count} mjeseci"
+      x_months:
+        one:   "1 mjesec"
+        two, three, four: "%{count} mjeseca"
+        other: "%{count} mjeseci"
+      about_x_years:
+        one, two, three, four:   "%{count} godine"
+        other: "%{count} godina"
+      over_x_years:
+        one, two, three, four:   "%{count} godine"
+        other: "%{count} godina"
+      almost_x_years:
+        two, three, four: "gotovo %{count} godine"
+        other: "gotovo %{count} godina"
+
+

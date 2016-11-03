@@ -1,0 +1,20 @@
+<h1>Kolegiji</h1>
+<% if admin? %>
+	<li><%= link_to "Dodaj novi kolegij", create_page_path %></li>
+<% end %>
+
+<%= will_paginate %>
+
+<ul class="pages">
+<% @pages.each do |page| %>
+<li>
+	<%= link_to page.name, page %>
+	<% if current_user.admin?  %>
+		| <%= link_to "uredi", edit_page_path(page) %>
+		| <%= link_to "obriši", page, method: :delete,
+		data: { confirm: "Jeste sigurni?" } %>
+	<% end %>
+<% end %>
+</ul>
+
+<%= will_paginate %>
